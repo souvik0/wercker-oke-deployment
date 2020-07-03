@@ -63,11 +63,11 @@ build:
   after-steps: 
     - slack-notifier:
           url: $SLACK_URL 
-          channel: notifications 
-          custom_message: Deploying $WERCKER_GIT_BRANCH to $WERCKER_DEPLOYTARGET_NAME ($WERCKER_DEPLOY_URL) 
+          channel: notificationwercker 
+          custom_message: Building image $WERCKER_GIT_BRANCH to $WERCKER_DEPLOYTARGET_NAME ($WERCKER_DEPLOY_URL) 
 
 
-deploy-to-minikube:
+deploy-to-oke:
   box:
         id: alpine
         cmd: /bin/sh
@@ -88,7 +88,5 @@ deploy-to-minikube:
   after-steps: 
     - slack-notifier:
           url: $SLACK_URL 
-          channel: notifications 
+          channel: notificationswercker 
           custom_message: Deploying after kubernetes $WERCKER_GIT_BRANCH to $WERCKER_DEPLOYTARGET_NAME ($WERCKER_DEPLOY_URL) 
-  
-          
